@@ -59,7 +59,7 @@ public class Array_Ej5_EjerciciosClase {
         for (int j : array) {
             if (j % 2 != 0) {
 
-                System.out.println("El primer numero par es " + j);
+                System.out.println("El primer numero impar es " + j);
                 break;
             }
 
@@ -71,12 +71,8 @@ public class Array_Ej5_EjerciciosClase {
 
             System.out.print(n + "; ");
 
-
-
         }
         System.out.println();
-
-
 
 
     }
