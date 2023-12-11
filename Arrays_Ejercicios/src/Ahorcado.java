@@ -20,13 +20,14 @@ public class Ahorcado {
         String [] palabras = {"hello", "dance", "job", "java", "programming", "difficult", "skyrim", "coffee", "iphone", "headphones" };
         char [] abecedario = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
+
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         String randomElement = palabras[random.nextInt(palabras.length)];
         String espacios = "_";
 
 
-        System.out.println(randomElement);
+        //System.out.println(randomElement);
         int contador = randomElement.length();
         System.out.println(contador);
 
@@ -39,17 +40,37 @@ public class Ahorcado {
 
         System.out.println();
 
-        for (int i = 0; i < randomElement.length(); i++) {
+        int vidas = 20;
+        int intentos = 20;
+        for (int i = 0; i < intentos; i++) {
 
-            System.out.println("Indique la letra que quiere introducir");
+            System.out.println("Indique la letra que quiere introducir: ");
             String letra = scanner.next();
+
+            if(randomElement.contains(letra)){
+                System.out.println("La letra " + letra + " esta en la palabra ");
+                System.out.println(contador--);
+
+                if (contador==0){
+                    System.out.println("Ha acertado todas las letras");
+                    System.out.println("La palabra es " + randomElement);
+                }
+
+
+            } else {
+                vidas--;
+                System.out.println("La letra " + letra + " no esta en la palabra");
+                System.out.println("Te quedan " + vidas  + " intentos.");
+
+                if (vidas==0){
+                    System.out.println("GAME OVER");
+                    System.out.println("Ya no le quedan vidas");
+                    break;
+                }
+            }
 
         }
 
-
-
-
-
-
     }
 }
+
